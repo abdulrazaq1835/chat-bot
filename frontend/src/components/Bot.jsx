@@ -59,8 +59,11 @@ const Bot = () => {
             // Centered welcome message
             <div className="text-center text-gray-400 text-lg">
               👋 Hi, I'm{" "}
-              <span className="text-green-500 font-semibold"> DevGenie</span>.
+              <span className="text-blue-500 font-semibold"> DevGenie</span>.
+              <br/>
+              <span> <h1>Ready When you are ....</h1></span>
             </div>
+            
           ) : (
             <>
               {messages.map((msg, idx) => (
@@ -94,14 +97,14 @@ const Bot = () => {
             <input
               type="text"
               className="flex-1 bg-transparent outline-none text-white placeholder-gray-400 px-2"
-              placeholder="Ask BotSpoof..."
+              placeholder="Ask DevGenie..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyPress}
             />
             <button
               onClick={handleSendMessage}
-              className="bg-green-600 hover:bg-green-700 px-4 py-1 rounded-full text-white font-medium transition-colors"
+              className="bg-blue-600 hover:bg-green-700 px-4 py-1 rounded-full text-white font-medium transition-colors"
             >
               Send
             </button>
