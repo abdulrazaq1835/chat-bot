@@ -4,24 +4,24 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Bot = () => {
   const [messages, setMessages] = useState([]);
-
   const [input, setInput] = useState("");
-
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
+
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   const handleSendMessage = async () => {
-    setLoading(true);
-
     if (!input.trim()) return;
 
+    setLoading(true);
+
     try {
-      const res = await axios.post("http://localhost:4000/bot/v1/message", {
-        text: input,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/bot/v1/message`,
+        { text: input }
+      );
 
       if (res.status === 200) {
         setMessages([
@@ -35,9 +35,11 @@ const Bot = () => {
     } catch (error) {
       console.log("error in bot", error);
     }
+
     setInput("");
     setLoading(false);
   };
+
   const handleKeyPress = (e) => {
     if (e.key === "Enter") handleSendMessage();
   };
