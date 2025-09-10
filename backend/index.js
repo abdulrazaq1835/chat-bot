@@ -31,10 +31,10 @@ app.use('/bot/v1',chatbotRoutes)
 
 
 
-app.get('/',(req, res )=>{
- res.send("helo world")
-})
+// app.get('/',(req, res )=>{
+// //  res.send("helo world")
+// })
 
 app.listen(port,()=>{
     console.log(`sever running  on ${port}`)
-})
+})  
